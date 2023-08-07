@@ -1,5 +1,7 @@
-package com.example.db_for_players.models;
+package com.example.db_for_players.services;
 
+import com.example.db_for_players.models.Event;
+import com.example.db_for_players.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

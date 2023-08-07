@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "player")
+@Table(name = "players")
 public class Player {
     @Id
     @Column(name = "id")
@@ -25,6 +25,4 @@ public class Player {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "event")
-    private List<Event> events;
 }
