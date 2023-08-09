@@ -20,4 +20,12 @@ public class PlayerService {
     public Player get_by_id(long id){
         return playerService.findById(id).get();
     }
+
+    public void delete_by_id(long id){
+        playerService.deleteById(id);
+    }
+
+    public void put_new(Player new_player){
+        playerService.save(new_player);
+    }
 }

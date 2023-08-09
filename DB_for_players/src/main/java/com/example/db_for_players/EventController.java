@@ -5,10 +5,9 @@ import com.example.db_for_players.models.Player;
 import com.example.db_for_players.services.EventService;
 import com.example.db_for_players.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,7 +25,22 @@ public class EventController {
 
     @GetMapping("/all")
     List<Event> findAll(){
-        return eventService.allEvents();
+        return eventService.get_all_events();
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<String> creatingNewEvent(Event event){
+        eventService.put_new(event);
+        return new ResponseEntity<>("Event was added ", HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deletingEvent(long id){
+        try{
+            eventService.delete_by_id(id);
+            return new ResponseEntity<>("Event was deleted", HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("Cannot delete event", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
