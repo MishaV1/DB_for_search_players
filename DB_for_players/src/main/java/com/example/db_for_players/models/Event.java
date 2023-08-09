@@ -15,9 +15,9 @@ public class Event {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
+
     @JoinColumn(name = "player_id")
-    private Player player_id;
+    private long player_id;
 
     @Column(name = "game")
     private String game;

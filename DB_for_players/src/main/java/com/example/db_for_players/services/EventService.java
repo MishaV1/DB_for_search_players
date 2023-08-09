@@ -4,6 +4,7 @@ import com.example.db_for_players.models.Event;
 import com.example.db_for_players.models.Player;
 import com.example.db_for_players.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,4 +30,6 @@ public class EventService {
     public void put_new(Event new_event){
         repository.save(new_event);
     }
+
+
 }
